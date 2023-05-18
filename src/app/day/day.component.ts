@@ -43,9 +43,4 @@ export class DayComponent {
   getDateAsWeekdayString(date: Date): string {
     return date.toLocaleString('de-DE', { weekday: 'long' });
   }
-
-  getDateAsDayDate(date: Date): string{
-    return date.toLocaleString('de-DE', {day: 'numeric', month: 'numeric', year: 'numeric'})
-  }
-
 }
