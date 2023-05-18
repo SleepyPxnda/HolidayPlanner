@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarComponent } from './calendar/calendar.component';
 import { DayComponent } from './day/day.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatGridListModule} from "@angular/material/grid-list";
+import {CardModule} from "primeng/card";
+import {DropdownModule} from "primeng/dropdown";
+import {FormsModule} from "@angular/forms";
+import {PaginatorModule} from "primeng/paginator";
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatGridListModule
+    CardModule,
+    DropdownModule,
+    FormsModule,
+    PaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
