@@ -1,0 +1,11 @@
+<h1>Holiday Planer</h1>
+<ng-container *ngFor="let month of this.calendarService.months">
+  <h2 class="disable-text-selection">{{month.name}}</h2>
+  <div class="card">
+    <div class="flex align-items-stretch flex-wrap card-container" style="min-height: 200px">
+      <div *ngFor="let day of month.days" class="flex align-items-center justify-content-center font-bold text-white border-round m-2" style="min-width: 200px; min-height: 50px">
+        <app-day [day]="day"></app-day>
+      </div>
+    </div>
+  </div>
+</ng-container>

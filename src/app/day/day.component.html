@@ -1,0 +1,6 @@
+<div class="flex align-items-center justify-content-center font-bold text-black-alpha-90 border-round m-1 disable-text-selection"
+     style="min-width: 10rem; min-height: 4rem"
+     (click)="onDayCardClick()" [ngClass]="this.getClassesForCard()">
+  <span>{{getDateAsWeekdayString(day.date)}} <br> {{day.date | date }}</span>
+</div>
+
