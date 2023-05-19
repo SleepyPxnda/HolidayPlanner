@@ -8,10 +8,7 @@ import {CalendarService} from "../services/calendar.service";
 })
 export class CalendarComponent {
 
-  selectedYear: string = '';
   yearOptions: string[];
-  amountOfFreeDays: number = 30;
-  alreadySelectedDays: number = 0;
 
   constructor(public calendarService: CalendarService) {
     console.log(calendarService.months);
