@@ -13,7 +13,7 @@ export class CalendarService {
   }
 
   daysInMonth(month: number, year: number): number {
-    return new Date(year, month, 0).getDate();
+    return new Date(year, month + 1, 0).getDate();
   }
 
   getMonthAsString(year: number, month: number): string{
@@ -27,7 +27,7 @@ export class CalendarService {
       const daysInCurrentMonth = this.daysInMonth(month, year);
       let days :Day[] = [];
 
-      for(let day = 1; day < daysInCurrentMonth; day++){
+      for(let day = 1; day <= daysInCurrentMonth; day++){
         days.push({date: new Date(year, month, day), isFreeDay: false, isSelected: false});
       }
 

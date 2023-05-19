@@ -4,10 +4,11 @@
 
   <div class="grid">
     <ng-container *ngFor="let day of month.days; first as isFirst">
-      <div *ngIf="isFirst; else noOffset" class="'col-offset-4'"></div>
-      <ng-template #noOffset [ngClass]="[0,6].includes(day.date.getDay()) ? 'col-1' : 'col-2'">
+      <div [ngClass]="[
+          [0,6].includes(day.date.getDay()) ? 'col-1' : 'col-2',
+          isFirst && day.date.getDay() > 0 ? 'col-offset-' + ((day.date.getDay() * 2) - 2) : isFirst ? 'col-offset-11' : '']">
         <app-day [day]="day"></app-day>
-      </ng-template>
+      </div>
     </ng-container>
   </div>
 </ng-container>
