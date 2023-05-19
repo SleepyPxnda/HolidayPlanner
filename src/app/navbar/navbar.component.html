@@ -1,0 +1,12 @@
+<div class="sticky top-0 font-bold text-white bg-indigo-500 p-1 flex align-items-center justify-content-center flex-nowrap">
+  <div class="flex justify-content-center align-items-center mr-1">
+    <p-dropdown [options]="yearOptions" (onChange)="recalculateYear($event)"></p-dropdown>
+  </div>
+  <div class="flex justify-content-center align-items-center mr-1 ml-1">
+    <h1>Holiday Planner</h1>
+  </div>
+  <div class="flex justify-content-center align-items-center mr-1">
+    <p-inputNumber [min]="1" [max]="40" [(ngModel)]="workfreeDays"></p-inputNumber>
+    <p-inputNumber [min]="1" [max]="40" [(ngModel)]="usableWorkfreeDays" [disabled]="true"></p-inputNumber>
+  </div>
+</div>

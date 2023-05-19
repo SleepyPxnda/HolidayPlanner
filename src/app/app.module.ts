@@ -11,13 +11,15 @@ import { DropdownModule} from "primeng/dropdown";
 import { FormsModule} from "@angular/forms";
 import { PaginatorModule} from "primeng/paginator";
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
-    DayComponent
+    DayComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

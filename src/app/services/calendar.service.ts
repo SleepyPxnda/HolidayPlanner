@@ -8,9 +8,10 @@ import {FreedayService} from "./freeday.service";
 export class CalendarService {
 
   months: Month[] = [];
+  currentYear: number = 2023;
 
   constructor(private freeDayService: FreedayService) {
-    this.fillMonthsArray(2023);
+    this.fillMonthsArray(this.currentYear);
   }
 
   daysInMonth(month: number, year: number): number {
@@ -24,7 +25,7 @@ export class CalendarService {
   fillMonthsArray(year: number) {
     this.months = [];
 
-    this.freeDayService.requestFreeDays(2023).subscribe(
+    this.freeDayService.requestFreeDays(year).subscribe(
       {next: data => {
           let holidays = data.feiertage.map(tag => {
             return {date: tag.date, name: tag.fname}
