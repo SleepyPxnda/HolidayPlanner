@@ -1,7 +1,8 @@
 export interface Day {
   isFreeDay: boolean
   isSelected: boolean
-  date: Date;
+  date: Date
+  freeDayTitle?: string
 }
 
 export interface Month {

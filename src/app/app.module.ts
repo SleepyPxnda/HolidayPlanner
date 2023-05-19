@@ -12,6 +12,7 @@ import { FormsModule} from "@angular/forms";
 import { PaginatorModule} from "primeng/paginator";
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     DropdownModule,
     FormsModule,
     PaginatorModule,
-
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

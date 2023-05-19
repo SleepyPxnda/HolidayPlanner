@@ -36,8 +36,9 @@ export class CalendarService {
             let days :Day[] = [];
 
             for(let day = 1; day <= daysInCurrentMonth; day++){
-              if(holidays.find(holiday => `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}` === holiday.date)){
-                days.push({date: new Date(year, month, day), isFreeDay: true, isSelected: false});
+              const freeDay = holidays.find(holiday => `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}` === holiday.date)
+              if(freeDay){
+                days.push({date: new Date(year, month, day), isFreeDay: true, isSelected: false, freeDayTitle: freeDay.name});
               } else {
                 days.push({date: new Date(year, month, day), isFreeDay: false, isSelected: false});
               }

@@ -1,6 +1,8 @@
 <div class="flex align-items-center justify-content-center font-bold text-black-alpha-90 border-round m-1 disable-text-selection bg-gray-400"
      style="min-width: 100%; min-height: 100%"
-     (click)="onDayCardClick()" [ngClass]="this.getClassesForCard()">
+     (click)="onDayCardClick()" [ngClass]="this.getClassesForCard()"
+     [pTooltip]="this.day.freeDayTitle || ''" tooltipPosition="top"
+>
   <span>{{getDateAsWeekdayString(day.date)}} <br> {{day.date | date: 'dd.MM' }}</span>
 </div>
 
