@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Day, Month} from "../models/calendar.models";
+import {FreedayService} from "./freeday.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class CalendarService {
 
   months: Month[] = [];
 
-  constructor() {
+  constructor(private freeDayService: FreedayService) {
     this.fillMonthsArray(2023);
   }
 
@@ -23,17 +24,29 @@ export class CalendarService {
   fillMonthsArray(year: number) {
     this.months = [];
 
-    for(let month = 0; month < 12; month++) {
-      const daysInCurrentMonth = this.daysInMonth(month, year);
-      let days :Day[] = [];
+    this.freeDayService.requestFreeDays(2023).subscribe(
+      {next: data => {
+          let holidays = data.feiertage.map(tag => {
+            return {date: tag.date, name: tag.fname}
+          })
 
-      for(let day = 1; day <= daysInCurrentMonth; day++){
-        days.push({date: new Date(year, month, day), isFreeDay: false, isSelected: false});
-      }
+          for(let month = 0; month < 12; month++) {
+            const daysInCurrentMonth = this.daysInMonth(month, year);
+            let days :Day[] = [];
 
-      this.months.push({days: days,
-        name: this.getMonthAsString(year, month),
-        number: month})
-    }
+            for(let day = 1; day <= daysInCurrentMonth; day++){
+              if(holidays.find(holiday => `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}` === holiday.date)){
+                days.push({date: new Date(year, month, day), isFreeDay: true, isSelected: false});
+              } else {
+                days.push({date: new Date(year, month, day), isFreeDay: false, isSelected: false});
+              }
+            }
+
+            this.months.push({days: days,
+              name: this.getMonthAsString(year, month),
+              number: month})
+          }
+        }}
+    );
   }
 }

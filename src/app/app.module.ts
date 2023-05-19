@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarComponent } from './calendar/calendar.component';
 import { DayComponent } from './day/day.component';
-import {CardModule} from "primeng/card";
-import {DropdownModule} from "primeng/dropdown";
-import {FormsModule} from "@angular/forms";
-import {PaginatorModule} from "primeng/paginator";
+import { CardModule} from "primeng/card";
+import { DropdownModule} from "primeng/dropdown";
+import { FormsModule} from "@angular/forms";
+import { PaginatorModule} from "primeng/paginator";
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import {PaginatorModule} from "primeng/paginator";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CardModule,
     DropdownModule,
     FormsModule,
     PaginatorModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

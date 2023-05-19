@@ -33,7 +33,7 @@ export class DayComponent {
     }
 
     if(classes === ''){
-      classes += 'bg-white '
+      classes += 'bg-gray-400 '
     }
 
     return classes;

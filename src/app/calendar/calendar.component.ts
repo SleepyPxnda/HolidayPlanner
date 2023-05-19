@@ -21,8 +21,4 @@ export class CalendarComponent {
       return year + addYear;
     }).map(year => year.toString());
   }
-
-  getOffsetClass() {
-    return 'col-offset-4'
-  }
 }
