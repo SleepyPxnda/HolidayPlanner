@@ -1,11 +1,20 @@
-<div class="sticky top-0 font-bold text-white bg-indigo-500 p-1 flex align-items-center justify-content-center flex-nowrap">
-  <div class="flex justify-content-center align-items-center mr-1">
-    <p-dropdown [options]="yearOptions" (onChange)="recalculateYear($event)"></p-dropdown>
-  </div>
+<div class="sticky top-0 font-bold text-white bg-indigo-500 p-1 flex align-items-center justify-content-around flex-nowrap">
   <div class="flex justify-content-center align-items-center mr-1 ml-1">
     <h1>Holiday Planner</h1>
   </div>
   <div class="flex justify-content-center align-items-center mr-1">
+    <p-dropdown [options]="yearOptions" (onChange)="recalculateYear($event)"></p-dropdown>
+  </div>
+  <div class="flex justify-content-center align-items-center mr-1">
     <label>Already used days: {{calendarService.usedDays}}</label>
   </div>
+  <div class="flex justify-content-center align-items-center mr-1 ml-1">
+    <span class="p-buttonset">
+      <button pButton pRipple icon="pi pi-save" (click)="this.saveData()"></button>
+      <button pButton pRipple icon="pi pi-upload" (click)="this.loadData()" disabled></button>
+    </span>
+  </div>
 </div>
+
+<app-save-dialog [isVisible]="isSaveDialogVisible" (close)="closeSaveDialog()"></app-save-dialog>
+<app-load-dialog [isVisible]="isLoadDialogVisible" (close)="closeLoadDialog($event)"></app-load-dialog>

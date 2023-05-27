@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CalendarService} from "../services/calendar.service";
+import {ConfigurationService} from "../services/configuration.service";
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,10 @@ export class NavbarComponent {
 
   yearOptions: String[] = [];
 
-  constructor(public calendarService: CalendarService) {
+  isSaveDialogVisible: boolean = false;
+  isLoadDialogVisible: boolean = false;
+
+  constructor(public calendarService: CalendarService, private configurationService: ConfigurationService) {
     this.genereateYearOptionsForDrowpdown();
   }
 
@@ -21,5 +25,26 @@ export class NavbarComponent {
 
   recalculateYear(newValue: any) {
     this.calendarService.fillMonthsArray(newValue.value);
+  }
+
+  loadData(){
+    this.isLoadDialogVisible = true;
+  }
+
+  closeLoadDialog(data: string): void {
+    this.calendarService.loadMonthsFromJson(data);
+
+
+    this.isLoadDialogVisible = false;
+
+  }
+
+  saveData(): void {
+    this.configurationService.prepareSaveData(this.calendarService.months)
+    this.isSaveDialogVisible = true;
+  }
+
+  closeSaveDialog() {
+    this.isSaveDialogVisible = false;
   }
 }

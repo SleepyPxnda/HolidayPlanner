@@ -63,4 +63,8 @@ export class CalendarService {
   calculatedHolidaysInMonth(): void{
     this.months.forEach(month => month.holidays = month.days.filter(day => day.isSelected).length);
   }
+
+  loadMonthsFromJson(data: string) {
+    //TODO implement loading
+  }
 }

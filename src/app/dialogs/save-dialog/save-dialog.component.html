@@ -1,0 +1,12 @@
+<p-dialog [visible]="isVisible" [modal]="true" [resizable]="false" [draggable]="false" [closable]="false" [style]="{ width: '50vw', height: '50vh' }">
+  <ng-template pTemplate="header">
+    <h1>Save Data</h1>
+  </ng-template>
+  <span class="p-float-label m-2">
+    <textarea id="float-input" rows="5" cols="30" pInputTextarea [style]="{ width: '40vw', height: '20vh' }" [(ngModel)]="this.configurationService.saveData" disabled></textarea>
+    <label for="float-input">Data</label>
+  </span>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-cross" (click)="closeDialog()" label="Close" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

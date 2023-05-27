@@ -1,0 +1,13 @@
+<p-dialog [visible]="isVisible" [modal]="true" [resizable]="false" [draggable]="false" [closable]="false" [style]="{ width: '50vw', height: '50vh' }">
+  <ng-template pTemplate="header">
+    <h1>Load Data</h1>
+  </ng-template>
+  <span class="p-float-label">
+    <textarea id="float-input" rows="5" cols="30" pInputTextarea [(ngModel)]="dataString" [style]="{ width: '40vw', height: '20vh' }"></textarea>
+    <label for="float-input">Input JSON string</label>
+  </span>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-cross" (click)="closeDialog()" label="Close" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+
