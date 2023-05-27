@@ -1,5 +1,5 @@
 <ng-container *ngFor="let month of this.calendarService.months">
-  <h2 class="disable-text-selection">{{month.name}}</h2>
+  <h2 class="disable-text-selection">{{month.name}} - {{month.holidays}}/{{month.days.length}}</h2>
 
   <div class="grid">
     <ng-container *ngFor="let day of month.days; first as isFirst">

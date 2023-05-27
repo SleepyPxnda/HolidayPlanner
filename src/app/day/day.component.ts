@@ -16,7 +16,8 @@ export class DayComponent {
   }
   onDayCardClick() {
     this.day.isSelected = !this.day.isSelected;
-    this.calendarService.countUsedDays();
+    this.calendarService.calculateUsedDaysForYear();
+    this.calendarService.calculatedHolidaysInMonth();
   }
 
   getClassesForCard(): string {
@@ -36,6 +37,12 @@ export class DayComponent {
 
     if(classes === ''){
       classes += 'bg-gray-400 '
+    }
+
+    const today = new Date();
+    if(this.day.date.getDate() === today.getDate()
+      && this.day.date.getMonth() == today.getMonth()){
+      classes += 'card-today '
     }
 
     return classes;

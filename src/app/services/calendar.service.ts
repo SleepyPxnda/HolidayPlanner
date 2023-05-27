@@ -47,15 +47,20 @@ export class CalendarService {
 
             this.months.push({days: days,
               name: this.getMonthAsString(year, month),
-              number: month})
+              number: month,
+              holidays: 0})
           }
         }}
     );
   }
 
-  countUsedDays(): void {
+  calculateUsedDaysForYear(): void {
     let usedDays = 0;
     this.months.forEach(month => usedDays += month.days.filter(day => day.isSelected).length)
     this.usedDays = usedDays;
+  }
+
+  calculatedHolidaysInMonth(): void{
+    this.months.forEach(month => month.holidays = month.days.filter(day => day.isSelected).length);
   }
 }

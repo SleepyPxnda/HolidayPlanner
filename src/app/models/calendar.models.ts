@@ -9,6 +9,7 @@ export interface Month {
   days: Day[];
   number: number;
   name: string;
+  holidays: number;
 }
 
 export interface Holiday {
