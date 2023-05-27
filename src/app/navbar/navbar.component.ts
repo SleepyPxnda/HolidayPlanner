@@ -9,10 +9,8 @@ import {CalendarService} from "../services/calendar.service";
 export class NavbarComponent {
 
   yearOptions: String[] = [];
-  workfreeDays: string = '1';
-  usableWorkfreeDays: string = this.workfreeDays;
 
-  constructor(private calendarService: CalendarService) {
+  constructor(public calendarService: CalendarService) {
     this.genereateYearOptionsForDrowpdown();
   }
 

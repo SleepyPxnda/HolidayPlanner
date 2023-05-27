@@ -12,6 +12,7 @@ import { FormsModule} from "@angular/forms";
 import { PaginatorModule} from "primeng/paginator";
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import {UploadIcon} from "primeng/icons/upload";
 
 
 @NgModule({
@@ -21,17 +22,18 @@ import { NavbarComponent } from './navbar/navbar.component';
     DayComponent,
     NavbarComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    CardModule,
-    DropdownModule,
-    FormsModule,
-    PaginatorModule,
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        CardModule,
+        DropdownModule,
+        FormsModule,
+        PaginatorModule,
+        UploadIcon,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

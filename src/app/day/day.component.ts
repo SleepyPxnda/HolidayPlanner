@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Day} from "../models/calendar.models";
+import {CalendarService} from "../services/calendar.service";
 
 @Component({
   selector: 'app-day',
@@ -11,10 +12,11 @@ export class DayComponent {
   @Input()
   day!: Day;
 
-  constructor() {
+  constructor(private calendarService: CalendarService) {
   }
   onDayCardClick() {
     this.day.isSelected = !this.day.isSelected;
+    this.calendarService.countUsedDays();
   }
 
   getClassesForCard(): string {

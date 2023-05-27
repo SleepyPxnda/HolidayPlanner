@@ -9,6 +9,7 @@ export class CalendarService {
 
   months: Month[] = [];
   currentYear: number = 2023;
+  usedDays: number = 0;
 
   constructor(private freeDayService: FreedayService) {
     this.fillMonthsArray(this.currentYear);
@@ -49,5 +50,11 @@ export class CalendarService {
           }
         }}
     );
+  }
+
+  countUsedDays(): void {
+    let usedDays = 0;
+    this.months.forEach(month => usedDays += month.days.filter(day => day.isSelected).length)
+    this.usedDays = usedDays;
   }
 }
